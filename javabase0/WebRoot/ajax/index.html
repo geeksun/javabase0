@@ -1,0 +1,18 @@
+<html>
+     <head>
+          <title>MyTunes Library</title>
+          <script type="text/javascript" src="/js/prototype.js"></script>
+          <script type="text/javascript">
+               function loadTunes(){
+                    new Ajax.Updater('tunesBox', 'list.php', { method: 'get' });
+               }
+          </script>
+	 <link  rel="stylesheet" href="tunes.css" type="text/css"/>
+     </head>
+     <body onload="loadTunes();">
+          <div id="pageTitle">MyTunes</div>
+          <div id="tunesBox">
+               <img id="spinner" src="wait_spinner.gif" height="33" width="33"/>
+          </div>
+     </body>
+</html>

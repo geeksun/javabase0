@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>pass ajax</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script type="text/javascript" src="/js/prototype.js"></script>
+    <script type="text/javascript">
+	function getContents()
+	{
+		var request_url = "test1.html";       // 需要获取内容的url
+		var request_pars = ''; 		//请求参数
+		 
+		var myAjax = new Ajax.Updater('result', request_url,{ 	// 将request_url返回内容绑定到id为result的容器中
+		method     : 'get',    		//HTTP请求的方法,get or post
+		parameters : request_pars, 	//请求参数
+		onFailure  : reportError, 	//失败的时候调用 reportError 函数
+		onLoading  : loading, 		//正在获得内容的时候
+		onComplete : done     		//内容获取完毕的时候
+		});
+	}
+		 
+	function loading()
+	{
+		$('loading').style.display = 'block';
+	}
+	 
+	function done()
+	{
+		$('loading').style.display = 'none';
+	}
+	 
+	function reportError(request)
+	{
+		alert('Sorry. There was an error.');
+	} 
+	
+    </script>
+
+  </head>
+  
+  <body>
+  	Ajax.Updater 将 xmlhttprequest 的返回内容直接绑定页面某个元素中.<br>
+  	
+      <input type="button"  name="test" value="testajax" onclick="getContents()">
+  </body>
+</html>

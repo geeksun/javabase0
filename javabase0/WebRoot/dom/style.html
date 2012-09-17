@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>style.html</title>
+	
+  </head>
+  
+  <body>
+    	<span id="p1" class="sel">1</span>
+		<span id="p2"><a href="javascript:display(2)">2</a></span>
+		<span id="p3"><a href="javascript:display(3)">3</a></span>
+
+		<div id="q1" style="display:block">
+		<table>1</table>
+		</div>
+		<div id="q2" style="display:none">
+		<table>2</table>
+		</div>
+		<div id="q3" style="display:none">
+		<table>3</table>
+		</div>
+  </body>
+</html>
+<script type="text/javascript">
+		var maxPhoCount = 3;
+		var curr=1;
+		function display(k){
+			//alert(curr+" "+k); 1 2
+			document.getElementById("p"+curr).className="";
+			document.getElementById("p"+k).className="sel";
+			document.getElementById("q"+curr).style.display = "none";		//  <div>
+			document.getElementById("q"+k).style.display = "block";			//  display="" also permit
+			document.getElementById("p"+curr).innerHTML="<a href='javascript:display("+curr+")'>"+curr+"</a>";
+			document.getElementById("p"+k).innerHTML=k;
+			
+			curr=k;
+		}
+		function changeDiv(){
+			var k=(curr<maxPhoCount)?(curr+1):1;
+			//alert(curr+":"+k);
+			display(k);
+			setTimeout("changeDiv()", 5000);
+		}
+		
+		setTimeout("changeDiv()", 5000);
+</script>

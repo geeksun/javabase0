@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE> Test Page:Test $()的使用 </TITLE>
+<script src="Prototype140.js"></script>
+<script>
+function test1()
+{
+	var d = $('myDiv');
+	alert(d.innerHTML);
+}
+function test2()
+{
+	var divs = $('myDiv','myOtherDiv');
+	for(var i=0; i<divs.length; i++)
+	{
+		alert(divs[i].innerHTML);
+	}
+}
+</script>
+<script>
+function test3()
+{
+	alert(  $F('userName')  );
+}
+</script>
+</HEAD>
+
+<BODY>
+<!-- $()是document.getElementById(),可以传入多个id作为参数,返回一个多无素的Arrays对象 -->
+<div id="myDiv">
+	<p>This is a paragraph</p>
+</div>
+<div id="myOtherDiv">
+	<p>This is another paragraph</p>
+</div>
+<input type="button" value=Test1 onclick="test1();"><br>
+<input type="button" value=Test2 onclick="test2();"><br>
+
+<!--  $F()用于返回表单输入控件的值,也可以用元素ID或元素本身做为参数  -->
+<input type="text" id="userName" value="Joe Doe"><br>
+<input type="button" value=Test3 onclick="test3();"><br>
+
+<!-- $A()能把它接到的单个的参数转化为一个Array对象 -->
+<script>
+function showOptions(){
+	var someNodeList = $('listEmployees').getElementsByTagName('option');
+	var nodes = $A(someNodeList);
+	nodes.each(function(nodes){				//  each(iterator)用于对数组内的元素执行迭代器函数,是枚举对象的核心
+		alert(nodes.nodeName + ': ' + nodes.innerHTML);
+	});
+}
+</script>
+<select id="listEmployees" size="10" >
+	<option value="5">Buchanan, Steven</option>
+	<option value="8">Callahan, Laura</option>
+	<option value="1">Davolio, Nancy</option>
+	<option value="7">Beijing, Sun</option>
+</select>
+<input type="button" value="Show the options" onclick="showOptions();" >
+
+<!--  $H()函数把一些对象转换成一个可枚举的和联合数组类似的Hash对象。 -->
+<script>
+function testHash()
+{
+	//let's create the object
+	var a = {
+	first: 10,
+	second: 20,
+	third: 30
+	};
+	//now transform it into a hash
+	var h = $H(a);
+	alert(h.toQueryString()); 		//displays: first=10&second=20&third=30
+	alert(h.inspect());
+}
+</script>
+<input type="button" value="testHash" onClick="testHash();" >
+
+<!--  $R()是new ObjectRange(lowBound,upperBound,excludeBounds)的缩写。 ObjectRange是工具类,用于进行指定次数的循环运算
+       可替代 for 循环   -->
+<script>
+function demoDollar_R(){
+	var range = $R(10, 20, false);
+	range.each(function(value, index){			//  迭代 10 到 20
+		alert(value);
+	});
+}
+</script>
+<input type="button" value="Sample Count" onclick="demoDollar_R();" >
+
+<!--  Try.these() 方法使得实现当你想调用不同的方法直到其中的一个成功正常的这种需求变得非常容易， 他把一系列的方法作为参数并且按顺序
+       的一个一个的执行这些方法直到其中的一个成功执行，返回成功执行的那个方法的返回值。   -->
+<script>
+//  xmlNode.text在一些浏览器中好用，但是xmlNode.textContent在另一些浏览器中正常工作
+function getXmlNodeValue(xmlNode){
+    return Try.these(
+        function() {return xmlNode.text;},
+        function() {return xmlNode.textContent;));
+}
+// Try 的实现代码如下
+var Try = {
+	these:function(){
+	var returnValue;
+	for(var i=0;i<arguments.length;i++){
+		var lanbda = arguments[i];
+		try{
+			returnValue = lambda();
+			break;
+		}catch(e){}
+	}
+	return returnValue;
+	}
+}
+function testTry()
+{
+	alert(Try);
+} 
+</script>
+<input type="button" value="test Try-these" onClick="testTry();" >
+</BODY>
+</HTML>

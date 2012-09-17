@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>DOM & CSS 实现菜单的折叠和展开</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		dl{	background-color:#000;color:#fff;width:100px;}
+		dt{ cursor:pointer;width:100%;background-color:#666;}
+		.expand {overflow:visible;}
+		.collapse {height:16px;overflow:hidden;}
+	</style>
+	<script type="text/javascript">
+		function toggleDl(dt){
+			var dl = dt.parentNode;
+			if("collapse" == dl.className) dl.className = "expand";
+			else dl.className = "collapse";	
+		}
+	</script>
+  </head>
+  
+  <body>
+     <dl>
+     	<dt onclick="toggleDl(this)">根结点</dt>
+     	<dd>子结点1</dd>
+     	<dd>子结点2</dd>
+     	<dd>子结点3</dd>
+     	<dd>子结点4</dd>
+     </dl>
+  </body>
+</html>

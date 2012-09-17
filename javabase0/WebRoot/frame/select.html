@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME=Generator CONTENT=EditPlus>
+<META NAME=Author CONTENT=>
+<META NAME=Keywords CONTENT=>
+<META NAME=Description CONTENT=>
+<style type=text/css>
+body{font-family:Courier New, Courier}
+select{font-size:8pt;font-family:Courier New, Courier}
+input{font-size:8pt;font-family:Courier New, Courier}
+</style>
+<SCRIPT LANGUAGE=JavaScript>
+<!--
+var Name=new Array(3);
+var Value=new Array(3);
+Name[1]=new Array(Zosatapo1,Zosatapo2,Zosatapo3,Zosatapo4);
+Name[2]=new Array(Reic Yang1,Reic Yang2,Reic Yang3,Reic Yang4);
+
+function change()
+{
+selIndex=document.all(test).selectedIndex;
+if(document.all(test).selectedIndex==0)
+return;
+
+for(i=document.all(test).options.length-1;i>-1;i--)
+{
+document.all(test).options.remove(i);
+}
+
+
+
+for(i=0;i<Name[selIndex].length;i++)
+{
+document.all(test).options.add(new Option(Name[selIndex][i],name+i));
+}
+
+}
+
+function changeEx(){
+
+
+for(i=document.all(sub).options.length;i>0;i--)
+{
+document.all(sub).options.remove(i-1);
+}
+
+
+if(document.all(main).selectedIndex==0){
+document.all(sub).options.add(new Option(==========,-1));
+return;}
+
+
+selIndex=document.all(main).selectedIndex;
+
+for(i=0;i<Name[selIndex].length;i++)
+{
+document.all(sub).options.add(new Option(Name[selIndex][i],name+i));
+}
+
+}
+
+function reset(){
+for(i=document.all(test).options.length-1;i>-1;i--)
+{
+document.all(test).options.remove(i);
+}
+
+document.all(test).options.add(new Option(==========,-1));
+
+document.all(test).options.add(new Option(Zosatapo,1));
+
+document.all(test).options.add(new Option(Reic Yang,2));
+
+}
+
+function display(object){
+alert(object.options[object.selectedIndex].text+ +object.options[object.selectedIndex].value);
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#FFFFFF>
+First Sample:<br><font color=blue>All items will change After you Selected!</font><br>
+<SELECT id=test  onchange=change();>
+<option value=-1  selected>==========
+<option  value=1>Zosatapo
+<option  value=2>Reic Yang
+</SELECT><input name=Reset Select type=button value=Reset Select onclick=reset(); ><br><br>
+
+Second Sample:<br><font color=blue>You selected Item in Main Select will change the Sub select Content!</font><br>
+Main Select:<SELECT id=main  onchange=changeEx();>
+<option value=-1  selected>==========
+<option  value=1>Zosatapo
+<option  value=2>Reic Yang
+</SELECT>
+
+Sub Select:<SELECT id=sub onchange=display(this);>
+<option value=-1  selected>==========
+</SELECT><br><br>
+</BODY>
+</HTML>

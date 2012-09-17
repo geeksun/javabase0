@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>multiplication.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript">
+		/*
+		程序功能：打印九九乘法表,使用了标签和continue,break的用法同continue
+		*/
+		function multiply(){
+			lable1:for(var i=1;i<=9;i++){
+				document.write("<br>");
+				for(var j=1;j<=9;j++){
+					if(j>i){
+						 continue lable1;
+					}
+					document.write(i+"*"+j+"="+i*j+"&nbsp; ");
+				}
+			}
+		}
+		/*	parseInt() OR eval() 可以将字符串类型强制转换为数字类型
+		*/
+		function convert(){
+			alert(3+parseInt("3"));
+			alert(3+eval("3"));
+		}
+		function test(){
+			var a=1;
+			var b=c=d=new Date();
+			alert(d.getDay());
+			var e;
+			alert(e=5);
+		}
+		/*	++递增运算符前置会先将变量值加1，然后用在表达式中；后置表示先将变量的值用在表达式中，然后再将其加1.
+		*/
+		function tt(){
+			var b=1;
+			alert(b++);
+			alert(b);
+			alert(++b);			
+		}
+		/*	判断是否为闰年的方法 
+		*/
+		function logic(){
+			var year = prompt("请输入要判断是否为闰年的年份：",2000);
+			year = parseInt(year);					// 可选：将 year 转换为数字类型
+			var check4 = (0==year%4);				// 判断年份是否能被4整除
+			var check100 = (0==year%100);
+			var check400 = (0==year%400);
+			if((check4&&!check100)||check400)
+				alert(year+"年是闰年.");
+			else alert(year+"年不是闰年.");
+		}
+	</script>
+  </head>
+  
+  <body onload="tt()">
+  	<table align="center" valign="middle">
+     <input type="button" value="test" onClick="multiply()"> 
+     <input type="button" value="eval" onClick="convert()">
+     <input type="button" value="logic" onClick="logic();">
+    </table>
+  </body>
+</html>
