@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<poolman> 
+<management-mode>local</management-mode>
+
+<datasource>
+<!-- 数据库的名字  -->
+<dbname>SIPO</dbname> 
+<!-- jndi的名字 --> 
+<jndiName>sipo</jndiName> 
+<!-- 驱动字符串 --> 
+<!--  
+<driver>com.microsoft.jdbc.sqlserver.SQLServerDriver</driver> 
+-->
+<driver>com.mysql.jdbc.Driver</driver>
+<!-- 连接字符串 --> 
+<!--  
+<url>jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=SIPO</url> 
+-->
+<url>jdbc:mysql://localhost/test?useUnicode=true&amp;characterEncoding=gbk</url>
+<!-- 数据库登录用户名 --> 
+<username>root</username> 
+<!-- 数据库登录密码 --> 
+<password></password> 
+<!-- 日志文件的文件名(含路径) --> 
+<logFile>sipo.log</logFile> 
+<!-- 是否可用预执行 --> 
+<poolPreparedStatements>true</poolPreparedStatements> 
+<!-- 初始化后连接个数 --> 
+<initialConnections>5</initialConnections> 
+<!-- 最小连接个数  -->
+<minimumSize>5</minimumSize> 
+<!-- 最大连接个数 --> 
+<maximumSize>200</maximumSize> 
+<!-- 达到最大连接个数后是否可以再创建新的连接 --> 
+<maximumSoft>true</maximumSoft> 
+<!-- XX秒后destory连接 --> 
+<connectionTimeout>600</connectionTimeout> 
+<!-- 在返回连接池前用户可以保持XX秒 --> 
+<userTimeout>12</userTimeout> 
+</datasource> 
+</poolman>
+

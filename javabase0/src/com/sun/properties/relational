@@ -1,0 +1,36 @@
+在我们平时写程序的时候，有些参数是经常改变的，而这种改变不是我们预知的。比如说我们开发了一个操作数据库的模块，在开发的时候我们连接本地的数据库那么 IP ，数据库名称，表名称，数据库主机
+等信息是我们本地的，要使得这个操作数据的模块具有通用性，那么以上信息就不能写死在程序里。通常我们的做法是用配置文件来解决。 
+各种语言都有自己所支持的配置文件类型。比如 Python ，他支持 .ini 文件。因为他内部有一个 ConfigParser 类来支持 .ini 文件的读写，根据该类提供的方法程序员可以自由的来操作 .ini 文件。
+而在 Java 中， Java 支持的是 .properties 文件的读写。 JDK 内置的 java.util.Properties 类为我们操作 .properties 文件提供了便利。 
+
+一．properties 文件的形式 ========================================================== 
+# 以下为服务器、数据库信息 
+dbPort = localhost 
+databaseName = mydb 
+dbUserName = root 
+dbPassword = root 
+# 以下为数据库表信息 
+dbTable = mytable 
+# 以下为服务器信息 
+ip = 192.168.0.9 
+在上面的文件中我们假设该文件名为： test.properties 文件。其中 # 开始的一行为注释信息；在等号“ = ”左边的我们称之为 key ；等号“ = ”右边的我们称之为 value 。（其实就是我们常说的
+键 - 值对） key 应该是我们程序中的变量。而 value 是我们根据实际情况配置的。 
+
+二． JDK 中的 Properties 类 Properties 类存在于胞 Java.util 中，该类继承自 Hashtable ，它提供了几个主要的方法： 
+1． getProperty ( String  key) ，   用指定的键在此属性列表中搜索属性。也就是通过参数 key ，得到 key 所对应的 value 。 
+
+2． load ( InputStream  inStream) ，从输入流中读取属性列表（键和元素对）。通过对指定的文件（比如说上面的 test.properties 文件）进行装载来获取该文件中的所有键 - 值对。以供 
+getProperty ( String  key) 来搜索。 
+
+3． setProperty ( String  key, String  value) ，调用 Hashtable 的方法 put 。他通过调用基类的put方法来设置 键 - 值对。 
+
+4． store ( OutputStream  out, String  comments) ，   以适合使用 load 方法加载到 Properties 表中的格式，将此 Properties 表中的属性列表（键和元素对）写入输出流。与
+ load 方法相反，该方法将键 - 值对写入到指定的文件中去。 
+
+5． clear () ，清除所有装载的 键 - 值对。该方法在基类中提供。 
+
+有了以上几个方法我们就可以对 .properties 文件进行操作了！ 
+
+总结：java的properties文件需要放到classpath下面，这样程序才能读取到，有关classpath实际上就是java类或者库的存放 路径，在java工程中，properties放到class文件一块。在web应用中，
+最简单的方法是放到web应用的WEB-INF\classes 目录下即可，也可以放在其他文件夹下面，这时候需要在设置classpath环境变量的时候，将这个文件夹路径加到classpath变量中，这样也也可 以读取
+到。在此，你需要对classpath有个深刻理解，classpath绝非系统中刻意设定的那个系统环境变量，WEB-INF\classes其 实也是，java工程的class文件目录也是。 
