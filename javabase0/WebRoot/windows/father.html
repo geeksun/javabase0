@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>打开模式窗口</TITLE>
+<script language="javascript">
+//showModalDialog(): 打开模式窗口（打开后不能操作父窗口）
+function showmodal(){
+	 var ret = window.showModalDialog("child.htm",null,"dialogWidth:350px;dialogHeight:350px;help:no;status:no");
+	 if (ret){
+	 	alert('子窗口返回真!');
+	 }else{
+	  	alert('子窗口返回假!');
+	 }
+  }
+
+</script>
+</HEAD>
+<BODY>
+<INPUT id=button1 type=button value=Button name=button1 onclick="showmodal();">
+
+</BODY>
+</HTML>
+

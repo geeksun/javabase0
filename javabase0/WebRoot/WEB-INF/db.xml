@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       <poolman> 
+          <datasource> 
+           <dbname>default</dbname> 
+          <jndiName>default</jndiName> 
+          <driver>com.mysql.jdbc.Driver</driver> 
+          <url>jdbc:mysql://localhost:3306/test</url> 
+          <username>root</username> 
+          <password></password> 
+          <poolPreparedStatements>false</poolPreparedStatements> 
+          <initialConnections>3</initialConnections> 
+          <minimumSize>0</minimumSize> 
+          <maximumSize>10</maximumSize> 
+          <maximumSoft>true</maximumSoft> 
+          <connectionTimeout>300</connectionTimeout> 
+          <userTimeout>0</userTimeout> 
+          <skimmerFrequency>300</skimmerFrequency> 
+          <shrinkBy>10</shrinkBy> 
+          <transactionTimeout>100</transactionTimeout> 
+          <cacheEnabled>false</cacheEnabled> 
+          <cacheSize>10</cacheSize> 
+          <cacheRefreshInterval>120</cacheRefreshInterval> 
+          <removeOnExceptions>false</removeOnExceptions> 
+       </datasource> 
+     </poolman>

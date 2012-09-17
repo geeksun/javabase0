@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>子窗口</TITLE>
+<script language="javascript">
+function trans(tag){
+	//returnValue: 返回窗口值 
+    if (tag==0){
+       window.returnValue=false;
+    } else{
+       window.returnValue =true;
+   }
+   window.close();
+}
+
+</script>
+</HEAD>
+<BODY>
+
+<INPUT id=button1 type=button value="返回真" name=button1 onclick="trans(1)">
+<INPUT id=button2 type=button value="返回假" name=button2 onclick="trans(0)">
+
+</BODY>
+</HTML>
