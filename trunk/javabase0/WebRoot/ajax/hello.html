@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="http://blog.yening.cn/" />
+<title>Prototype Ajax.updater 示例代码</title>
+
+<link rel="stylesheet" href="/stylesheet/global.css" type="text/css" media="all" />
+<script type="text/javascript" src="/js/prototype.js"></script>
+<script type="text/javascript">
+	function getContents(page)
+	{
+	  var request_url;       // 请求url
+	  var request_pars = ''; //请求参数
+	  switch (page){
+		  case "1":
+			request_url = "test1.html";
+			break;
+		  case "2":
+			request_url = "test2.html";
+			break;
+		  case "3":
+			request_url = "test3.html";
+			break;
+		  case "4":
+			request_url = "test4.php";
+		    request_pars = 'a=1&b[]=1&b[]=2';
+			break;
+		  default:
+			request_url = "error.html";
+		    break;
+	  };
+	
+	  var myAjax = new Ajax.Updater('result', request_url,{
+	  method     : 'get', // http 请求方法,get or post
+	  parameters : request_pars, // 请求参数
+	  onFailure  : reportError, // 失败的时候调用 reportError 函数处理
+	  onLoading  : loading, // 加载时
+	  onComplete : done     // 读取完毕
+	  });
+	}
+	
+	
+	function loading()
+	{
+		$('loading').style.display = 'block';
+	}
+	
+	function done()
+	{
+		$('loading').style.display = 'none';
+	}
+		
+	function reportError(request)
+	{
+	  alert('Sorry. There was an error.');
+	}
+</script>
+</head>
+<body>
+<div id="loading" class="loading">Loading....</div>
+<br/>
+<form  method="post" id="form" name="form" action="">
+	<input type="button" onclick='getContents("1")' value="Hello World" />
+	<input type="button" onclick='getContents("2")' value="A Chapter" />
+	<input type="button" onclick='getContents("4")' value="PHP" />
+	<input type="button" onclick='getContents("3")' value="An Error" />
+</form>
+<br/>
+<div id="result" class="defaultContainer">
+<!-- 内容容器 -->
+</div>
+<!-- 2006-3-19 2:08 -->
+</body>
+</html>

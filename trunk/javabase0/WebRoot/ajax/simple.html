@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Simple Ajax</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript">
+		var xmlHttp;
+		function createXMLHttpRequest(){
+			if(window.ActiveXObject){				// IE
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+				// alert("1");
+			}
+			else if(window.XMLHttpRequest){			// 非微软浏览器
+				xmlHttp = new XMLHttpRequest();
+				// alert("2");
+			}
+		}
+		function startRequest(){
+			createXMLHttpRequest();			
+			xmlHttp.onreadystatechange = handleStateChange;		//  回调函数,检查 xmlHttp 的属性 readyState 和 status,
+				//  在服务器正确返回后显示返回的内容
+			//var name = document.getElementById("name").value;	//  得到表单输入值
+			//xmlHttp.open("GET","hello.jsp?name="+name,true);	//  用 hello.jsp,不支持 txt 格式？用的 GET 方法
+			xmlHttp.open("GET","hello.txt",true);
+			xmlHttp.send(null);
+		}
+		function handleStateChange(){
+			if(xmlHttp.readyState == 4){					//  请求完成
+				if(xmlHttp.status == 200){					//  成功得到请求内容
+				//  提示服务器的返回信息
+				alert("服务器返回信息:" + xmlHttp.responseText);
+				}
+			}
+		}
+	</script>	
+  </head>
+  
+  <body>
+    	<form action="#">
+    		姓名:<input type="text" id="name" name="name" >
+    		<input type="button" value="简单请求" onclick="startRequest()" />    		
+    	</form>
+  </body>
+</html>

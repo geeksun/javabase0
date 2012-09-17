@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>三级联动菜单</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<script language="JavaScript" type="text/javascript">
+//ChangeSelect(上一级的值,下一级Select控件的ID值,下一级Select控件要选中的值(即value而非text),数据源数组名,默认显示字符(如:请选择...如果不写的话会用默认值填充))，第一级的上级值为0
+function ChangeSelect(ParentValue, NextId, NextSelectedValue, ArrObj,DefaultStr)
+{
+StrObj = eval(document.getElementById(NextId));
+StrObj.length = 0;
+//判断它是二级数据源，还是三级
+if (ArrObj.length > 0)
+{
+if (ArrObj[0].length == 2)
+{ArrNum = 0;}
+else
+{ArrNum = 2;}
+}
+//显示所有列表
+for (i = 0; i < ArrObj.length; i++)
+{
+if (i == 0)
+{
+if (DefaultStr == undefined ) DefaultStr="==请选择==";
+StrObj.options[StrObj.length] = new Option(DefaultStr, "");
+}
+if (ArrObj[i][1] == ParentValue)
+{
+StrObj.options[StrObj.length] = new Option(ArrObj[i][0],ArrObj[i][ArrNum]);
+}
+}
+//选中列表内某一项
+for (i = 0; i < StrObj.length; i++)
+{
+if (StrObj.options[i].value == NextSelectedValue)
+{
+StrObj.options[i].selected = true;
+}
+}
+//激发下一级的onchange事件以实现多级级联
+StrObj.onchange();
+}
+//公司二维数组数据源
+Office = [
+["CategoryName","ParentCategoryName"],
+["业务部","0"],
+["技术部","0"],
+["市场部","0"],
+["业务部小柳","业务部"],
+["业务部小杨","业务部"],
+["业务部小菜","业务部"],
+["技术部老柳","技术部"],
+["技术部老杨","技术部"],
+["技术部老菜","技术部"],
+["市场部柳先生","市场部"],
+["市场部杨先生","市场部"],
+["市场部菜鸟","市场部"]
+]
+//省市二维数组数据源
+City2 = [
+["CategoryName","ParentCategoryName"],
+["山西省","0"],
+["河北省","0"],
+["太原市","山西省"],
+["运城市","山西省"],
+["石家庄","河北省"],
+["廊房","河北省"]
+]
+//省市三维数组数据源
+City3 = [
+["CategoryName","ParentId","Id"],
+["北京","0","010"],
+["山西","0","0359"],
+["朝阳区","010","001"],
+["海淀区","010","002"],
+["豆各庄","001","101"],
+["十里堡","001","102"],
+["中关村","002","201"],
+["上地","002","202"],
+["运城地区","0359","301"],
+["太原市","0359","302"],
+["永济市","301","311"],
+["小区","302","312"]
+];
+</script>
+		<select id="office1"
+			onchange="ChangeSelect(this.value,'office2','',Office,'==人员==')"
+			style="width:100px"></select>
+		<select id="office2" onchange="" style="width:100px"></select>
+		<script language="JavaScript" type="text/javascript">ChangeSelect('0','office1','',Office,'==部门==') </script>
+		<br />
+		<select id="City001"
+			onchange="ChangeSelect(this.value,'City002','',City2)"
+			style="width:100px"></select>
+		<select id="City002" onchange="" style="width:100px"></select>
+		<script language="JavaScript" type="text/javascript">ChangeSelect('0','City001','',City2) </script>
+		<br />
+		<select id="City3001"
+			onchange="ChangeSelect(this.value,'City3002','',City3)"
+			style="width:100px"></select>
+		<select id="City3002"
+			onchange="ChangeSelect(this.value,'City3003','',City3)"
+			style="width:100px"></select>
+		<select id="City3003" onchange="" style="width:100px"></select>
+		<script language="JavaScript" type="text/javascript">ChangeSelect('0','City3001','0359',City3) </script>
+		<br />
+
+	</head>
+
+	<body>
+		This is my HTML page.
+		<br>
+	</body>
+</html>

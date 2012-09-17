@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>geeksun table</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+     <div id="geeksunTable"></div>
+  </body>
+</html>
+<script type="text/javascript">
+	var container = document.getElementById("geeksunTable");
+	var _table = document.createElement("table");
+	_table.setAttribute("border","1");
+	_table.setAttribute("borderColor","black");
+	_table.setAttribute("width","200");
+	for(var i=0;i<5;i++)
+	{
+		var _tr = _table.insertRow(i);
+		for(var j=0;j<4;j++)
+		{
+			var _td = _tr.insertCell(j);
+			var _tn = document.createTextNode(i.toString()+j.toString());
+			_td.appendChild(_tn);
+		}
+	}
+	container.appendChild(_table);
+</script>

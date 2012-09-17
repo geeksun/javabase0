@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	  <table   id   ='test'   border='1'>  
+      <tr><td>111</td><td>111</td></tr>  
+      <tr><td>222</td><td>222</td></tr>  
+      <tr><td>333</td><td>333</td></tr>  
+  </table>  
+  <input type='text' id='row_num'>  
+  <input type='button' onclick=add(parseInt(document.getElementById("row_num").value)-1) value='add'>
+  <input type='button' onclick=del(parseInt(document.getElementById("row_num").value)-1) value='del'>  
+  <script>  
+        var row_num;  
+        var table = document.getElementById('test');  
+        function add(index){
+            newRow = table.insertRow(index);  
+            cell1 = newRow.insertCell();  
+            cell1.innerText = '555';  
+            cell2 = newRow.insertCell();  
+            cell2.innerText = '555';  
+            row_num = table.rows.length;  
+        }
+        function del(index){
+            table.deleteRow(index);  
+   			row_num   =   table.rows.length;  
+        }
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>span.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script>
+	　　function setspan(id){
+		  if(id==1){a.innerText="设置文字"};
+	　　   if(id==2){a.innerHTML="<font color=red size=7>设置代码</font>"};
+	   }
+　　</script>
+  </head>
+  
+  <body>
+     　<span>在行内定义一个区域，也就是一行内可以被<span>划分成好几个区域，从而实现某种特定效果。<span>本身没有任何属性。
+　　<span> 与<div>
+　　<span>在CSS定义中属于一个行内元素，而<div>是块级元素，我们可能通俗地理解为<div>为大容器，大容器当然可以放一个小容器了,<span>就是小容器。
+	例如：
+	<hr>
+　　<span id=a></span>
+　　<a href=javascript:setspan(1)>设置span的文字</a></br>
+　　<a href=javascript:setspan(2)>设置span的代码</a></br>
+     
+  </body>
+</html>

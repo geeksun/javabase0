@@ -1,0 +1,82 @@
+<html>
+ <head>
+  <title>Noteless Valley(lijun.org)程序示例</title>
+  <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+  <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <link href="xp_menu.css" rel="stylesheet" type="text/css">
+  <script language="javascript" src="xp_menu.js"></script>
+  <script language="javascript" for="document" event="onselectstart">
+<!--
+ return document_onselectstart()
+//-->
+  </script>
+  <script language="javascript" for="document" event="onclick">
+<!--
+ return document_onclick()
+//-->
+  </script>
+ </head>
+ <body scroll="no" language="javascript" onresize="return window_onresize()" onload="return window_onload()">
+  <script language="javascript">
+		<!--
+		 //定义一个主菜单对象
+		 var mnuMain = new menu("mnuMain");    
+		 mnuMain.bar[0] = new menu_bar("mnuMainNL","","无名谷","","Noteless Valley","",0,"mnuNL");
+		 mnuMain.bar[1] = new menu_bar("mnuMainSiteAdmin","","网站管理","","网站管理","",0,"mnuSiteAdmin");
+		 mnuMain.bar[2] = new menu_bar("mnuMainSystem","","系统管理","","系统管理","",0,"mnuSystem");
+		 mnuMain.bar[3] = new menu_bar("mnuMainShow","","演示菜单","","Menu Show","",0,"mnuShow");
+		 popMainMenu(mnuMain,0,0,"100%",27);    //激活主菜单，通过参数确定主菜单的位置
+		 
+		 var mnuNL = new menu("mnuNL");
+		 mnuNL.bar[0] = new menu_bar("mnuHomePage","","首页","","HomePage","",1,"http://lijun.org");
+		 mnuNL.bar[1] = new menu_bar("mnuDesign","","网页设计","","Design","",1,"http://lijun.org/article.asp?topic=1");
+		 mnuNL.bar[2] = new menu_bar("mnuProgram","","网络编程","","Program","",1,"http://lijun.org/article.asp?topic=2");
+		 mnuNL.bar[3] = new menu_bar("mnuOthers","","其它文章","","Others","",1,"http://lijun.org/article.asp?topic=3");
+		 popSubMenu(mnuNL);
+		 
+		 var mnuSiteAdmin = new menu("mnuSiteAdmin")
+		 mnuSiteAdmin.bar[0] = new menu_bar("mnuAddressUpdate","","访问地区更新","","访问地区更新","",1,"AddressUpdate.asp");
+		 popSubMenu(mnuSiteAdmin);
+		 
+		 var mnuSystem = new menu("mnuSystem");
+		 mnuSystem.bar[0] = new menu_bar("mnuSysUser","","用户管理","","用户管理","",1,"userAdmin.asp");
+		 mnuSystem.bar[1] = new menu_bar("mnuSysAuthority","","权限管理","","权限管理","",1,"authority.asp");
+		 mnuSystem.bar[2] = new menu_bar("\-","","","","","","","");
+		 mnuSystem.bar[3] = new menu_bar("mnuSysPwdChange","","口令修改","","口令修改","",1,"chgpwd.asp");
+		 mnuSystem.bar[4] = new menu_bar("\-","","","","","","","");
+		 mnuSystem.bar[5] = new menu_bar("mnuSysHelp","","帮助","","帮助","",1,"help.asp");
+		 mnuSystem.bar[6] = new menu_bar("mnuSysAbout","","关于本系统","","关于本系统","",1,"about.asp");
+		 mnuSystem.bar[7] = new menu_bar("\-","","","","","","","");
+		 mnuSystem.bar[8] = new menu_bar("mnuSysExit","","退出系统","","退出本系统","",1,"quit.asp");
+		 popSubMenu(mnuSystem); 
+		 
+		 var mnuShow = new menu("mnuShow");
+		 mnuShow.bar[0] = new menu_bar("mnuShow1","","演示菜单一","","Menu Show 1","",1,"menushow1.asp");
+		 mnuShow.bar[1] = new menu_bar("mnuShow2","","演示菜单二","","Menu Show 2","",0,"mnuShow_2");
+		 mnuShow.bar[2] = new menu_bar("mnuShow3","","演示菜单三","","Menu Show 3","",1,"menushow3.asp");
+		 mnuShow.bar[3] = new menu_bar("\-","","","","","","","");
+		 mnuShow.bar[4] = new menu_bar("mnuShow4","","演示菜单四","","Menu Show 4","",1,"menushow4.asp");
+		 mnuShow.bar[5] = new menu_bar("mnuShow5","","演示菜单五","","Menu Show 5","",0,"mnuShow_2");
+		 popSubMenu(mnuShow);
+		 
+		 var mnuShow_2 = new menu("mnuShow_2");
+		 mnuShow_2.bar[0] = new menu_bar("mnuShow21","","演示菜单二一","","Menu Show 2.1","",1,"menushow21.asp");
+		 mnuShow_2.bar[1] = new menu_bar("mnuShow22","","演示菜单二二","","Menu Show 2.2","",0,"mnuShow_22");
+		 mnuShow_2.bar[2] = new menu_bar("mnuShow23","","演示菜单二三","","Menu Show 2.3","",1,"menushow23.asp");
+		 mnuShow_2.bar[3] = new menu_bar("mnuShow24","","演示菜单二四","","Menu Show 2.4","",0,"mnuShow_22");
+		 mnuShow_2.bar[4] = new menu_bar("mnuShow25","","演示菜单二五","","Menu Show 2.5","",1,"menushow25.asp");
+		 popSubMenu(mnuShow_2);
+		 
+		 var mnuShow_22 = new menu("mnuShow_22");
+		 mnuShow_22.bar[0] = new menu_bar("mnuShow221","","演示菜单二二一","","Menu Show 2.2.1","",1,"menushow221.asp");
+		 mnuShow_22.bar[1] = new menu_bar("mnuShow222","","演示菜单二二二","","Menu Show 2.2.2","",1,"menushow222.asp");
+		 mnuShow_22.bar[2] = new menu_bar("mnuShow223","","演示菜单二二三","","Menu Show 2.2.3","",1,"menushow223.asp");
+		 popSubMenu(mnuShow_22);
+		//-->
+  </script>
+  <table border=0 cellpadding=0 cellspacing=0><tr><td height=27>此部分已经被顶部菜单条覆盖</td></tr></table>
+  <p id=lblOutput>信息提示区域</p>
+ </body>
+</html>
+

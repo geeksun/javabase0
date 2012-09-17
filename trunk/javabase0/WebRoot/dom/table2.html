@@ -1,0 +1,37 @@
+<html>
+ <head>
+  <title>动态增加行</title>
+ 
+ <script type="text/javascript">
+  function addCell(){
+   var cell = document.createElement("tr");
+   var row1 = document.createElement("td");
+   var row2 = document.createElement("td");
+   var text1 = document.createTextNode("zidoing")
+   var text2 = document.createTextNode("xiamen");
+   row1.appendChild(text1);
+   row2.appendChild(text2);
+   cell.appendChild(row1);
+   cell.appendChild(row2);
+   var mainbody = document.getElementById("mainbody");
+   mainbody.appendChild(cell);
+  }
+ </script>
+</head>
+
+<body>
+
+<table border="1">
+ <tr>
+  <td>姓名</td>
+  <td>地址</td>
+ </tr>
+ <tbody id="mainbody">
+ </tbody>
+</table>
+
+<input type="button" value="增加行" onclick="addCell()"/>
+
+</body>
+
+</html>

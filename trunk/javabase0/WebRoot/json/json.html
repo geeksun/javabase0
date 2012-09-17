@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>json.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript">
+		function test(){
+			var User = {"UserID":11, "Name":"Truly", "Email":"zhuleipro◎hotmail.com"};
+			alert(User.Name+' '+User.UserID);
+		}
+		function test2(){
+			var UserList = [
+			{"UserID":11, "Name":{"FirstName":"Truly","LastName":"Zhu"}, "Email":"zhuleipro◎hotmail.com"},
+			{"UserID":12, "Name":{"FirstName":"Jeffrey","LastName":"Richter"}, "Email":"xxx◎xxx.com"},
+			{"UserID":13, "Name":{"FirstName":"Scott","LastName":"Gu"}, "Email":"xxx2◎xxx2.com"}
+			];
+			alert(UserList[0].Name.FirstName);
+		}		
+		function showJSON() {    
+		    var user =     
+		    {     
+		        "username":"andy",    
+		        "age":20,    
+		        "info": { "tel": "123456", "cellphone": "98765"},    
+		        "address":    
+		            [    
+		                {"city":"beijing","postcode":"222333"},    
+		                {"city":"newyork","postcode":"555666"}    
+		            ]    
+		    }    
+		    alert(user.username);    
+		    alert(user.age);    
+		    alert(user.info.cellphone);    
+		    alert(user.address[0].city);    
+		    alert(user.address[0].postcode);    
+		        
+		    user.username = "Tom";    
+		    alert(user.username);    
+		}  
+	</script>
+  </head>
+  
+  <body>
+     <input type="button" onClick="test()" value="json" >
+     <input type="button" onClick="test2()" value="json2" >
+     <input type="button" onClick="showJSON()" value="json3" >
+  </body>
+</html>

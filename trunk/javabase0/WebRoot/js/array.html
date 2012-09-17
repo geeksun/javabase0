@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>array usage</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript">
+		//  数组是一组变量的有序集合
+		function arrayTest(){
+			//  create Array object,also : var cnDays = new Array("a","b","c"); 
+			var cnDays = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			var date = new Date();
+			var a = cnDays[date.getDay()];
+			alert("今天是"+a);
+		}
+		//  数组可以是多维的,即数组的元素可以是又一个数组
+		function multiArray()
+		{
+			var a = new Array(4);
+			for(var i=0;i<4;i++)
+			{
+				a[i] = new Array(6);
+				for(var j=0;j<6;j++)
+				{
+					alert(a[i][j]);							//  遍历数组元素
+				}
+			}
+		}
+		//  调用数组的冒泡排序法
+		function bubble()
+		{
+			var a = [23,91,83,19,37,23,81,36,47];
+			bubbleSort(a);
+			for(var i=0;i<a.length;i++)
+			{
+				//  在页面显示文件
+				document.write(a[i]+" ");
+			}
+		}
+		//  实现对数组的冒泡排序
+		function bubbleSort(x)
+		{
+			for(var i=0;i<x.length;i++)
+			{
+				for(var j=i+1;j<x.length;j++)
+				{
+					if(x[i]<x[j]){
+						temp = x[i];
+						x[i] = x[j];
+						x[j] = temp;
+					}
+				}
+			}
+		}
+		//  数组连接,concat()	
+		function add()
+		{
+			alert("a");
+			var a = new Array("a","b","c");
+			alert("b");
+			alert(a.toString());
+			var b = new Array();
+			b = a.concat("d","e");						//  返回一个新的数组,a 不会有变化
+			alert("c");
+			alert(a.toString());						//  a 数组内容没有改变
+			alert(b);
+		}
+	</script>
+  </head>
+  
+  <body>
+  <script type="text/javascript">
+  	  /*
+  	  *  pop()用于把数组的最后一个元素弹出,即返回最后一个元素的值后立即丢失最后一个元素
+  	  */
+  	 function poptest()
+  	 {
+  	 	alert("929");
+  	 	var ary = [38,29,43,92,23,82,123,92];
+  	 	var i = ary.pop();										//  prototype:原型
+  	 	alert("9i9 "+i);
+  	 }  	
+  	 /*
+  	  * 此方法实现了Array对象的pop方法,它在老版本中没有得到支持,可通过下面的代码实现兼容
+  	  */
+  	 Array.prototype.pop = function()
+  	 {
+  	 	if(0==this.length) return;
+  	 	var temp = this[this.length-1];
+  	 	this.length--;
+  	 	return temp;
+  	 }
+  </script>
+  	<input type="button" onClick="arrayTest()" value="数组测试周几" >
+	<input type="button" onClick="multiArray()" value="多维数组测试" >
+  	<input type="button" onClick="bubble()" value="数组冒泡排序" >
+  	<input type="button" onClick="add()" value="数组连接测试" >
+  	<input type="button" onClick="longness()" value="数组长度测试" >
+  	<input type="button" onClick="poptest()" value = "POP(弹出最后一个元素)方法" >
+  	<script type="text/javascript">
+	/*
+	 *  Array attribute length is variable,may alter
+	 */
+	function longness()
+	{
+		var ary = [12,34,83,92,41,28,27,76,72,18];
+		alert("数组的长度:"+ary.length);
+		ary.length = 13;									//  改变数组的长度
+		alert("数组长度增长后的长度:"+ary.length);
+		alert("第9个元素的的值："+ary[9]);
+		ary.length = 8;
+		alert("改变长度后第9个元素的的值："+ary[9]);
+		ary.length = 10;
+		alert("恢复长度后第9个元素的值："+ary[9]);
+	}
+	</script>
+  </body>
+</html>

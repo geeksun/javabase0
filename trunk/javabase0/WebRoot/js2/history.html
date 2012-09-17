@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>history.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript">
+		function go(a)
+		{
+			var a = a;
+			location = history.go(1);
+		}
+	</script>
+  </head>
+  
+  <body>
+  	<!-- go()里可以传参数,back()里不能传参数 -->
+    <input type="button" value="Go" onClick="history.go(1)">
+    <a href="javascript:go(1)">Go</a>
+    <input type="button" value="Back" onClick="history.back()">
+  </body>
+</html>
