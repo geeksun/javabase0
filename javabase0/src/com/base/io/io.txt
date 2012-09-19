@@ -1,0 +1,49 @@
+流：将数据从一个地方传送到另一个地方的对象。
+字节流： 用于处理字节，整数和其他简单数据类型; 传送0～255的整数。读写0～255的整数值。
+字符流： 用于处理文本文件和其他文本源。 读写文本数据。
+对象流： 将数据表示为对象的一部分，而不是位于对象的外面。
+要将对象保存到目的地，必须将对象转换成串行格式。（POVO）
+串行数据每次被发送一个元素，即把数据信息作为一系列的位依次发送出去。
+对象实现 Serializable 接口来指出它可用于流。
+Serializable 的唯一用途是：指出类的对象可以以串行方式被存储和检索。
+对象串行化涉及到永久性：persistence: 对象在创建它的程序外仍能够存在和起作用。
+可使用限定符 transient 将对象的某些变量排除在串行化之外。
+
+流就像水流一样，把数据从一个地方带到另一个地方。
+输入流： 将数据从数据源传递给程序;
+输出流： 将数据从程序发送到某个目的地。
+
+EOFException: 通过输入流来读取文件时，过早地到达文件尾。（文件尾异常）可将读取数据的循环放在try块中，对应的catch块只处理
+EOFException异常，调用流的 close().
+
+字节流：分为：
+FileInputStream和FileOutputStream: 用于磁盘，光盘或其他存储设备中的文件中的文件的字节流。
+DataInputStream和DataOutputStream: 被过滤的字节流，从中可读取诸如整数和浮点数等数据。
+
+缓冲区是一片存储空间，在读写数据的程序需要之前，数据被存储在这里，使用缓冲区，无需每次都到数据源那里去获取数据。
+缓冲输入流使用未被处理的数据来填充缓冲区，程序需要数据时，将首先在缓冲区中查找，如果没有找到，再到流源中查找。
+
+缓冲字节流用： BufferedInputStream 和 BufferedOutputStream 来表示。
+
+字符流：
+Reader 和  Writer：
+用于处理用ASCII字符集或Unicode表示的文本。
+可以使用字符流来处理HTML文档，Java源文件和文本文件。
+
+字节流与字符流主要的区别是他们的的处理方式：
+字节流是最基本的，所有的InputStream和OutputStream的子类都是,主要用在处理二进制数据，它是按字节来处理的
+但实际中很多的数据是文本，又提出了字符流的概念，它是按虚拟机的encode来处理，也就是要进行字符集的转化
+这两个之间通过 InputStreamReader,OutputStreamWriter来关联，实际上是通过byte[]和String来关联
+在实际开发中出现的汉字问题实际上都是在字符流和字节流之间转化不统一而造成的
+
+在从字节流转化为字符流时，实际上就是byte[]转化为String时，
+public String(byte bytes[], String charsetName)
+有一个关键的参数字符集编码，通常我们都省略了，那系统就用操作系统的lang
+而在字符流转化为字节流时，实际上是String转化为byte[]时，
+byte[]    String.getBytes(String charsetName)
+也是一样的道理
+
+至于java.io中还出现了许多其他的流， 主要是为了提高性能和使用方便，
+如BufferedInputStream,PipedInputStream等 
+
+

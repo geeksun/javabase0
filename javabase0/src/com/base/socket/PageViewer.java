@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-import com.geeksun.awt.event.CloseFrameDialog;
+import com.base.awt.event.CloseFrameDialog;
 
 /**
  * @author ½ªÖ¾Ç¿
