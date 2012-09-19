@@ -1,4 +1,4 @@
-package com.geeksun.algorithms.app;
+package com.base.algorithms.app;
 
 import java.util.ArrayList;
 import java.util.List;

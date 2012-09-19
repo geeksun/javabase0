@@ -1,4 +1,4 @@
-package com.geeksun.algorithms.app;
+package com.base.algorithms.app;
 
 import java.util.Arrays;
 
@@ -59,3 +59,4 @@ public class MergeSort {
 	}
 
 }
+
