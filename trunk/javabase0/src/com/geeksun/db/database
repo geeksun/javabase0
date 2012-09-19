@@ -1,4 +1,0 @@
-JDBC 里的事务是由 Connection 对象控制的, 方法有: setAutoCommit(boolean value)、getAutoCommit()、commit()、rollback().
-JDBC 连接对象实际上保存了一个底层 TCP/IP 连接, 这种连接是非常消耗系统资源的, 并且数据库端为了维护这个连接对象也会消耗大量的系统资源,
-因此, 在使用完一个连接对象后应该及时地关闭它, 释放系统资源, 提高系统性能.
- 

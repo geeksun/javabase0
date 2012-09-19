@@ -1,6 +1,0 @@
-JFrame 内含 JRootPane 容器组件， 而 JRootPane 容器组件又内含 contentPane 容器组件， 我们的常用组件就包含在 contentPane 容器
-组件中， 而不是直接包含于 JFrame 中。 使用 JFrame 的 getContentPane() 方法，即可获取对 contentPane 对象的引用。
-JFrame frame = new JFrame("Swing");	//创建JFrame窗口
-Container cp = f.getContentPane();	//获取contentPane对象
-cp.add(new JButton("按钮")		//向contentPane添加按钮
-Swing的事件处理也采用事件委托处理模型机制。
