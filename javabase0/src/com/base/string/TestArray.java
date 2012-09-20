@@ -12,5 +12,8 @@ public class TestArray {
 		System.out.println("min:"+t[0]);
 		System.out.println("max:"+t[t.length-1]);
 		
+		int[] i = new int[15];
+		// Êä³ö0
+		System.out.println(i[0]);
 	}
 }
