@@ -35,7 +35,7 @@ public class SetArraySize {
 			list.add(obj);
 		}
 		long endTime = System.currentTimeMillis();
-		System.out.println("没有调用 ensurecapatity 方法:" + (endTime-startTime)+"ms");
+		System.out.println("没有调用 ensureCapacity 方法:" + (endTime-startTime)+"ms");
 		
 		list = new ArrayList<Object>();
 		startTime = System.currentTimeMillis();
@@ -45,7 +45,7 @@ public class SetArraySize {
 			 list.add(obj);
 		 }
 		endTime = System.currentTimeMillis();
-		System.out.println("调用ensurecapatity 方法:" + (endTime-startTime)+"ms");
+		System.out.println("ensureCapacity 方法:" + (endTime-startTime)+"ms");
 		
 		/* 输出：
 		 * 没有调用 ensurecapatity 方法:156ms
