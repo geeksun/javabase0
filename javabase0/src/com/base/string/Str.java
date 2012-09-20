@@ -17,7 +17,7 @@ public class Str {
 		Map<String,Integer> map=new HashMap<String,Integer>();
 		int n=1;
 		
-		for(int k=0;k<strs.length-1;k++){							// k min value is strs.length-2
+		for(int k=0;k<strs.length-1;k++){									// k min value is strs.length-2
 			if(k==strs.length-2){										
 				if(strs[k].equals(strs[k+1])){
 					n++;
