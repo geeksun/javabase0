@@ -8,6 +8,7 @@ import java.util.Stack;
 /**
  * @author geeksun
  * ¶þ²æËÑË÷Ê÷
+ * 2008-3-3
  */
 public class BinarySearch {
 
