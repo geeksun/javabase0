@@ -23,7 +23,6 @@ public class Statistics {
 			m.put(r, freq == null? 1 : freq + 1);
 		}
 		System.out.println(m);
-		
 	}
 
 }
