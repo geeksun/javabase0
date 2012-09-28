@@ -9,6 +9,7 @@ class Queue
 	private int front;			//  队头
 	private int rear;			//  后面的元素,队尾
 	private int nItems;			//  队列中的数据项的个数,会使insert()和remove()增加额外的性能开销
+	
 	public Queue(int s)
 	{
 		maxSize = s;
@@ -17,6 +18,7 @@ class Queue
 		rear = -1;
 		nItems = 0;
 	}
+	
 	/**
 	 * @param j,put item at rear of queue
 	 *  插入一个数据项,即把数据放入队尾
@@ -31,6 +33,7 @@ class Queue
 		queArray[++rear] = j;
 		nItems++;
 	}
+	
 	/**
 	 * @return 队头的元素
 	 *  移除队头的数据项,前提是队列不空
@@ -43,6 +46,7 @@ class Queue
 		nItems--;
 		return temp;
 	}
+	
 	/**
 	 * @return 查看队头的元素值(第一个插入的数据),查看要移除的值
 	 */
@@ -50,14 +54,17 @@ class Queue
 	{
 		return queArray[front];
 	}
+	
 	public boolean isEmpty()
 	{
 		return (nItems==0);
 	}
+	
 	public boolean isFull()
 	{
 		return (nItems==maxSize);
 	}
+	
 	/**
 	 * @return 队列的大小
 	 */
@@ -66,6 +73,7 @@ class Queue
 		return nItems;
 	}
 }
+
 public class QueueApp {
 	public static void main(String[] args) {
 		Queue qq = new Queue(5);
