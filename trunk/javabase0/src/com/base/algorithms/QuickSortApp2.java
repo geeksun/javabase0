@@ -6,16 +6,19 @@ class ArrayInf
 {
 	private long[] theArray;
 	private int nElems;
+	
 	public ArrayInf(int max)
 	{
 		theArray = new long[max];
 		nElems = 0;
 	}
+	
 	public void insert(long value)
 	{
 		theArray[nElems] = value;
 		nElems++;
 	}
+	
 	public void display()
 	{
 		System.out.print("A=");
@@ -25,6 +28,7 @@ class ArrayInf
 		}
 		System.out.println();
 	}
+	
 	/**
 	 *  对数组进行快速排序
 	 */
@@ -32,6 +36,7 @@ class ArrayInf
 	{
 		recQuickSort(0,nElems-1);
 	}
+	
 	/**
 	 * @param left
 	 * @param right
@@ -52,6 +57,7 @@ class ArrayInf
 			recQuickSort(partition+1,right);
 		}
 	}
+	
 	/**
 	 * @param left
 	 * @param right
@@ -73,6 +79,7 @@ class ArrayInf
 		swap(center,right-1);
 		return theArray[right-1];
 	}
+	
 	/**
 	 * @param left
 	 * @param right
@@ -98,6 +105,7 @@ class ArrayInf
 				swap(right-1,right);
 		}
 	}
+	
 	/**
 	 * @param left
 	 * @param right
@@ -120,6 +128,7 @@ class ArrayInf
 		swap(leftPtr,right-1);
 		return leftPtr;
 	}
+	
 	public void swap(int dex1,int dex2)
 	{
 		long temp = theArray[dex1];
@@ -127,6 +136,7 @@ class ArrayInf
 		theArray[dex2] = temp;
 	}
 }
+
 /**
  *  三数据项取中:找到数组里第一个,最后一个和中间位置数据项的居中数据项值,设此数据项为枢纽
  */

@@ -45,7 +45,7 @@ class ArrayIns
 	 * @param right
 	 *  选择最右端的数据项作为枢纽,如果数据是任意排列的,性能还可以;如果数据是有序的或逆序的,性能就会很差
 	 */
-	public void recQuickSort(int left,int right)
+	public void recQuickSort(int left, int right)
 	{
 		if(right-left<=0)
 			return;
@@ -54,19 +54,20 @@ class ArrayIns
 			//  选择待划分的数组的子数组最右端的数据作为枢纽
 			long pivot = theArray[right];
 			
-			int partition = partitionIt(left,right,pivot);	// partition range
-			recQuickSort(left,partition-1);		// sort left side
-			recQuickSort(partition+1,right);	// sort right side
+			int partition = partitionIt(left, right, pivot);	// partition range 分区范围
+			recQuickSort(left, partition-1);		// sort left side
+			recQuickSort(partition+1, right);	// sort right side
 		}
 	}
 	
 	/**
+	 * 
 	 * @param left
 	 * @param right
 	 * @param pivot
 	 * @return pivot的位置:枢轴
 	 */
-	public int partitionIt(int left,int right,long pivot)
+	public int partitionIt(int left, int right, long pivot)
 	{
 		int leftPtr = left - 1;
 		int rightPtr = right;
@@ -77,12 +78,17 @@ class ArrayIns
 			if(leftPtr>=rightPtr)
 				break;
 			else
-				swap(leftPtr,rightPtr);
+				swap(leftPtr, rightPtr);
 		}
-		swap(leftPtr,right);
+		swap(leftPtr, right);
 		return leftPtr;
 	}
 	
+	/**
+	 * 交换元素
+	 * @param dex1
+	 * @param dex2
+	 */
 	public void swap(int dex1,int dex2)
 	{
 		long temp = theArray[dex1];
