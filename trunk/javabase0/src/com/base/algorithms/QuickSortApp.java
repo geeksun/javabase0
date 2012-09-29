@@ -1,21 +1,27 @@
 package com.base.algorithms;
 /**
  *  第1种快速排序(原始版)
+ *  本质上把一个数组分成两个数组,然后递归地调用自身为每一个子数组进行快速排序来实现滴.
+ *  又称划分排序法，是一个递归的过程。
+ *  2012-9-29
  */
 class ArrayIns
 {
 	private long[] theArray;
 	private int nElems;
+	
 	public ArrayIns(int max)
 	{
 		theArray = new long[max];
 		nElems = 0;
 	}
+	
 	public void insert(long value)
 	{
 		theArray[nElems] = value;
 		nElems++;
 	}
+	
 	public void display()
 	{
 		System.out.print("A=");
@@ -25,13 +31,15 @@ class ArrayIns
 		}
 		System.out.println();
 	}
+	
 	/**
 	 *  对数组theArray进行快速排序
 	 */
 	public void quickSort()
 	{
-		recQuickSort(0,nElems-1);
+		recQuickSort(0, nElems-1);
 	}
+	
 	/**
 	 * @param left
 	 * @param right
@@ -51,6 +59,7 @@ class ArrayIns
 			recQuickSort(partition+1,right);	// sort right side
 		}
 	}
+	
 	/**
 	 * @param left
 	 * @param right
@@ -73,6 +82,7 @@ class ArrayIns
 		swap(leftPtr,right);
 		return leftPtr;
 	}
+	
 	public void swap(int dex1,int dex2)
 	{
 		long temp = theArray[dex1];
