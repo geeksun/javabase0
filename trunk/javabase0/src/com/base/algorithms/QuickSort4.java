@@ -29,14 +29,14 @@ public class QuickSort4 {
 	 * @param data
 	 * @param left
 	 * @param rightt
-	 * @return 
+	 * @return 枢钮位置
 	 */
 	static int partition(int[] data, int left, int right){
 		int key = data[left];
 		int temp;
 		
 		while(left < right){
-			// 从右边开始，第一个大于Key的元素与Key交换位置
+			// 从右边开始，第一个小于Key的元素与Key交换位置
 			while(left<right && data[right]>=key)
 				right--;
 			
@@ -45,6 +45,7 @@ public class QuickSort4 {
 			data[right] = data[left];
 			data[left] = temp;
 			
+			// 从左边开始，第一个大于Key的元素与Key交换位置
 			while(left<right && data[left]<=key)
 				left++;
 			
