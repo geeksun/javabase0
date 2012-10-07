@@ -9,23 +9,23 @@ public class QuickSort4 {
 	
 	/**
 	 * @param data 要排序的数组
-	 * @param left 左边索引
-	 * @param right 右边索引
+	 * @param left 左边数组下标
+	 * @param right 右边数组下标
 	 */
 	static void quickSort(int[] data, int left, int right){
 		if(left<right){
-			// 一趟排序算法
-			int index = partition(data, left, right);
+			// 一趟排序算法， 返回枢钮位置
+			int pivot = partition(data, left, right);
 			// 左边排序
-			quickSort(data, left, index-1);
+			quickSort(data, left, pivot-1);
 			// 右边排序
-			quickSort(data, index+1, right);
+			quickSort(data, pivot+1, right);
 		}
 	}
 	
 	/**
 	 * 一趟快速排序算法
-	 * 将记录数组r分成两部分，low为起始下标，high为结束下标 
+	 * 将记录数组data分成两部分，left为起始下标，right为结束下标 
 	 * @param data
 	 * @param left
 	 * @param rightt
