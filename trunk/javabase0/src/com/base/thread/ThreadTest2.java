@@ -35,7 +35,7 @@ public class ThreadTest2 {
 			Thread t = tt.new Thread0();
 			t.start();
 		}
-		// 让上面的线程运行完成
+		
 		Thread.sleep(1000);
 		Thread1 t1 = tt.new Thread1();
 		for(int i=0;i<10;i++){
